@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       lodash:
-        specifier: 4.17.20
-        version: 4.17.20
+        specifier: 4.18.1
+        version: 4.18.1
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -519,8 +519,8 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
-  lodash@4.17.20:
-    resolution: {integrity: sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==}
+  lodash@4.18.1:
+    resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
 
   loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
@@ -1026,7 +1026,7 @@ snapshots:
 
   json5@2.2.3: {}
 
-  lodash@4.17.20: {}
+  lodash@4.18.1: {}
 
   loose-envify@1.4.0:
     dependencies:
