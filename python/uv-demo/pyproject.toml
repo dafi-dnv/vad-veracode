@@ -1,0 +1,11 @@
+[project]
+name = "dependabot-demo-uv"
+version = "0.1.0"
+description = "A minimal uv project for the Dependabot security update demo"
+requires-python = ">=3.12"
+dependencies = [
+    "requests==2.25.0",
+]
+
+[tool.uv]
+package = false
