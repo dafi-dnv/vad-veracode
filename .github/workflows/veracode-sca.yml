@@ -1,0 +1,36 @@
+name: Veracode SCA
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    # GitHub does not provide repository secrets to fork or Dependabot pull requests.
+    if: ${{ github.event_name != 'pull_request' || (github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run Veracode SCA scan
+        env:
+          SRCCLR_API_TOKEN: ${{ secrets.SRCCLR_API_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${SRCCLR_API_TOKEN}" ]]; then
+            echo "::error::Missing SRCCLR_API_TOKEN. Add it under Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+          script="$RUNNER_TEMP/veracode-sca-ci.sh"
+          curl --fail --silent --show-error --location \
+            --retry 3 --retry-delay 2 \
+            --output "$script" \
+            https://sca-downloads.veracode.com/ci.sh
+          # Dependency manifests are in subdirectories, not at the repository root.
+          sh "$script" scan --recursive
