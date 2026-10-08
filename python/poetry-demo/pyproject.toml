@@ -5,7 +5,7 @@ description = "A minimal Poetry project for the Dependabot security update demo"
 
 requires-python = ">=3.12,<4.0"
 dependencies = [
-    "requests==2.25.0",
+    "requests==2.33.0",
 ]
 
 [tool.poetry]
